@@ -2,11 +2,13 @@
     {
         "id": 1,
         "front": "apple",
-        "back": "яблоко"
+        "back": "яблоко",
+        "setName":"English"
     },
     {
         "id": 2,
         "front": "red",
-        "back": "красный"
+        "back": "красный",
+        "setName":"Russian"
     }
 ]

@@ -1,7 +1,19 @@
 import { useState } from "react";
 import {Card} from "./Card";
+
+import { useLocation, useParams} from "react-router-dom";
+
 export function Set(){
-    const cards = require('../data');
+
+    const param = useParams();
+    console.log(param.id);
+
+    const location = useLocation();
+    const {set} = location.state;
+
+    
+
+    const cards = require('../data').filter((item) => (item.setName === set));
     const [step, setStep] = useState(0);
 
     const RemoveClick = () =>{

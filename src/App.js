@@ -1,15 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { PageViewSet } from './components/PageViesSet';
+import { PageCreateSet } from './components/PageCreateSet';
 
-import { Header } from './components/Header';
-import { Set } from './components/Set';
+import { PageSelectSet } from './components/PageSelectSet';
+
+import './App.css';
+import { FormCreateSet } from './components/FormCreateSet';
+import { FormCreateCard } from './components/FormCreateCard';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Set/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PageSelectSet/>} />
+        <Route path="/set/:id" element={<PageViewSet/>} />
+        <Route path="/admin" element={<PageCreateSet />} >
+          <Route path='createset' element={<FormCreateSet/>}/>
+          <Route path='createcard' element={<FormCreateCard/>}/>
+        </Route>
+        <Route path="*" element={<PageSelectSet />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
